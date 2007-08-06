@@ -1,5 +1,5 @@
-%define version 0.5
-%define release 1mdk
+%define version 0.7.0
+%define release %mkrel 1
 
 Name:		passepartout
 Summary:	Desktop Publishing for X (PAO)
@@ -52,11 +52,6 @@ mv $RPM_BUILD_ROOT%{_docdir}/%{name} docdir
 #ln -sf %{_datadir}/xml/%{name}/xhtml.xslt docdir/
 #ln -sf %{_datadir}/xml/%{name}/xhtml.xslt docdir/examples/
 
-mkdir -p $RPM_BUILD_ROOT%{_menudir}
-cat > $RPM_BUILD_ROOT%{_menudir}/%{name} << EOF
-?package(%{name}): command="%{_bindir}/%{name}" icon="%{name}.png" section="Office/Publishing" title="Passepartout" longtitle="Desktop Publishing for X (PAO)" needs="x11"
-EOF
-
 install -D -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 install -D -m 644 %{SOURCE2} $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
 install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
@@ -77,7 +72,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/xml/%{name}
 %{_mandir}/man1/*
 
-%{_menudir}/%{name}
 %{_liconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
