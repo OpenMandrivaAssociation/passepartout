@@ -43,9 +43,6 @@ quite usable.
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
-# ugly hack to put docs in the right dir
-mv $RPM_BUILD_ROOT%{_docdir}/%{name} docdir
-
 # fix symlinks pointing to BuilRoot
 #ln -sf %{_datadir}/xml/%{name}/docbook.xslt docdir/
 #ln -sf %{_datadir}/xml/%{name}/docbook.xslt docdir/examples/
@@ -67,7 +64,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS BUGS COPYING INSTALL NEWS docdir/*
+%doc AUTHORS BUGS COPYING INSTALL NEWS
+%doc %{_datadir}/doc/%{name}
 %{_bindir}/*
 %{_datadir}/xml/%{name}
 %{_mandir}/man1/*
