@@ -14,8 +14,8 @@ Group:		Publishing
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libxml++1.0-devel >= 1.0.0
-BuildRequires:	gtkmm2.0-devel
-BuildRequires:	libgnomecanvasmm2.0-devel
+BuildRequires:	gtkmm2.4-devel
+BuildRequires:	libgnomecanvasmm2.6-devel
 BuildRequires:	fam-devel
 Requires:	ghostscript
 Requires:	libxslt-proc
