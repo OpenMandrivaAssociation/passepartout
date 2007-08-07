@@ -13,7 +13,7 @@ Source3:	%{name}-16.png
 Group:		Publishing
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	libxml++1.0-devel >= 1.0.0
+BuildRequires:	libxml++1-devel >= 1.0.0
 BuildRequires:	gtkmm2.4-devel
 BuildRequires:	libgnomecanvasmm2.6-devel
 BuildRequires:	fam-devel
