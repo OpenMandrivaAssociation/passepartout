@@ -19,7 +19,7 @@ BuildRequires:	gtkmm2.4-devel
 BuildRequires:	libgnomecanvasmm2.6-devel
 BuildRequires:	fam-devel
 Requires:	ghostscript
-Requires:	libxslt-proc
+BuildRequires:	libxslt-proc
 
 %description
 Passepartout is an Open Source Desktop Publishing application for the
