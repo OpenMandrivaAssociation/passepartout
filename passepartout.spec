@@ -10,6 +10,7 @@ Source0:	http://www.stacken.kth.se/project/pptout/files/%{name}-%{version}.tar.b
 Source1:	%{name}-48.png
 Source2:	%{name}-32.png
 Source3:	%{name}-16.png
+Patch0:		passepartout-0.7.0-buildfix.patch
 Group:		Publishing
 License:	GPL
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -34,6 +35,7 @@ quite usable.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure2_5x
