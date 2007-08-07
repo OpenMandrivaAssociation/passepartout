@@ -19,7 +19,7 @@ BuildRequires:	gtkmm2.4-devel
 BuildRequires:	libgnomecanvasmm2.6-devel
 BuildRequires:	fam-devel
 Requires:	ghostscript
-BuildRequires:	libxslt-proc
+BuildRequires:	libxslt-proc docbook-dtd412-xml
 
 %description
 Passepartout is an Open Source Desktop Publishing application for the
@@ -45,24 +45,31 @@ quite usable.
 rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 
-# fix symlinks pointing to BuilRoot
-#ln -sf %{_datadir}/xml/%{name}/docbook.xslt docdir/
-#ln -sf %{_datadir}/xml/%{name}/docbook.xslt docdir/examples/
-#ln -sf %{_datadir}/xml/%{name}/xhtml.xslt docdir/
-#ln -sf %{_datadir}/xml/%{name}/xhtml.xslt docdir/examples/
+install -D -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+install -D -m 644 %{SOURCE2} $RPM_BUILD_ROOT%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT%{_iconsdir}/hicolor/48x48/apps/%{name}.png
 
-install -D -m 644 %{SOURCE1} $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
-install -D -m 644 %{SOURCE2} $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
-install -D -m 644 %{SOURCE3} $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
+mkdir -p %buildroot%{_datadir}/applications
+cat > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop << EOF
+[Desktop Entry]
+Name=Passepartout
+Comment=Desktop Publishing for X (PAO)
+Exec=passepartout
+Icon=passepartout
+Type=Application
+Categories=GTK;Office;Publishing;
+EOF
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
 %update_menus
+%update_icon_cache hicolor
 
 %postun
 %clean_menus
+%clean_icon_cache hicolor
 
 %files
 %defattr(-,root,root)
@@ -70,7 +77,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/*
 %{_datadir}/xml/%{name}
 %{_mandir}/man1/*
-
-%{_liconsdir}/%{name}.png
-%{_iconsdir}/%{name}.png
-%{_miconsdir}/%{name}.png
+%{_datadir}/applications/*.desktop
+%{_iconsdir}/hicolor/*/apps/%{name}.png
