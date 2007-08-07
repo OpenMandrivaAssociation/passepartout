@@ -67,7 +67,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 %doc AUTHORS BUGS COPYING INSTALL NEWS
-%doc %{_datadir}/doc/%{name}
 %{_bindir}/*
 %{_datadir}/xml/%{name}
 %{_mandir}/man1/*
