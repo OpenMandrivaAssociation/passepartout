@@ -13,6 +13,7 @@ Source3:	%{name}-16.png
 Patch0:		passepartout-0.7.0-buildfix.patch
 Group:		Publishing
 License:	GPL
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	libxml++1-devel >= 1.0.0
 BuildRequires:	gtkmm2.4-devel
 BuildRequires:	libgnomecanvasmm2.6-devel
