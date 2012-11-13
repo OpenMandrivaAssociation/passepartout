@@ -1,0 +1,12 @@
+diff --git a/src/ps/misc.h b/src/ps/misc.h
+index 1560898..7e77815 100644
+--- a/src/ps/misc.h
++++ b/src/ps/misc.h
+@@ -19,6 +19,7 @@ namespace PS {
+     const Matrix& matrix;
+   };
+   
++  std::ostream& operator << (std::ostream& out, const Concat& c);
+ }
+ 
+ #endif
