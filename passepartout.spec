@@ -5,7 +5,7 @@ Name:		passepartout
 Summary:	Desktop Publishing for X (PAO)
 Version:	%{version}
 Release:	%{release}
-Url:		http://www.stacken.kth.se/project/pptout/
+Url:		https://www.stacken.kth.se/project/pptout/
 Source0:	http://www.stacken.kth.se/project/pptout/files/%{name}-%{version}.tar.bz2
 Source1:	%{name}-48.png
 Source2:	%{name}-32.png
